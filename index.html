@@ -2,21 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Valentine 💖</title>
+  <title>Valentine for Bidishaaa 💖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> 
+  
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
-    html, body { height: 100%; margin: 0; padding: 0; }
+    :root {
+      --primary-pink: #ff4d6d;
+      --secondary-pink: #ff85a1;
+      --glass: rgba(255, 255, 255, 0.2);
+    }
 
+    html, body { height: 100%; margin: 0; padding: 0; overflow: hidden; }
+
+    /* 🌈 1. Animated Mesh Gradient Background */
     body {
       height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: #b780ebdc; 
-      font-family: 'Arial', sans-serif;
-      overflow: hidden;
+      background: linear-gradient(-45deg, #ee7752, #e73c7e, #b780eb, #23d5ab);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      font-family: 'Poppins', sans-serif;
       transition: background 1.5s ease;
       color: white;
       text-align: center;
@@ -24,158 +34,174 @@
       box-sizing: border-box;
     }
 
-    /* 🌈 Rainbow Heart */
-    .rainbow-text {
-      animation: colorCycle 3s infinite linear;
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
+    /* 📸 2. 3D Polaroid Photo Frame */
+    .photo-frame {
+      width: 160px;
+      height: 190px;
+      background: white;
+      padding: 10px 10px 40px 10px;
+      border-radius: 5px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+      transform: rotate(-3deg);
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 10;
+      margin-bottom: 30px;
+      cursor: pointer;
+    }
+    .photo-frame:hover {
+      transform: rotate(3deg) scale(1.05);
+    }
+    .photo-frame img { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      border: 1px solid #f0f0f0;
+    }
+
+    /* 🌹 BIG ANIMATED ROSE */
+    .big-rose {
+      position: absolute;
+      left: 5%;
+      bottom: 10%;
+      font-size: 120px;
+      filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.6));
+      animation: giantSway 4s ease-in-out infinite;
+      z-index: 8;
+      pointer-events: none;
+    }
+
+    @keyframes giantSway {
+      0%, 100% { transform: translateY(0) rotate(-5deg) scale(1); }
+      50% { transform: translateY(-30px) rotate(10deg) scale(1.1); }
+    }
+
+    .rainbow-text { animation: colorCycle 3s infinite linear; }
     @keyframes colorCycle {
-      0% { color: #00ff00; }
-      25% { color: #ffff00; }
-      50% { color: #00bfff; }
-      75% { color: #ff69b4; }
+      0% { color: #00ff00; } 25% { color: #ffff00; }
+      50% { color: #00bfff; } 75% { color: #ff69b4; }
       100% { color: #00ff00; }
     }
 
-    #page1 {
-      z-index: 10;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-    }
+    #page1, #page2 { z-index: 10; width: 100%; max-width: 500px; }
+    h1 { font-family: 'Pacifico', cursive; font-size: 28px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+    .subtext { font-family: 'Dancing Script', cursive; font-size: 24px; margin-bottom: 20px; }
 
-    #page1 h1 {
-      font-size: 28px;
-      line-height: 1.4;
-      z-index: 10;
-      position: relative;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 15px;
-      margin-top: 30px;
-      z-index: 10;
-    }
-
+    .buttons { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
     button {
-      padding: 15px 25px;
+      padding: 15px 35px;
       font-size: 18px;
-      border-radius: 12px;
+      border-radius: 50px;
       border: none;
       cursor: pointer;
-      font-weight: bold;
-      transition: transform 0.2s ease;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
-    #yes { background: #ffffff; color: #ff0000; }
-    #no { background: #555; color: white; position: relative; }
-
-    /* 🎁 Valentine Items */
-    .valentine-items {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 5;
+    #yes { background: white; color: var(--primary-pink); animation: pulse 1.5s infinite; }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
     }
 
-    .item {
-      position: absolute;
-      font-size: 48px;
-      animation: floatItem 4s ease-in-out infinite;
-      opacity: 0.9;
-    }
+    #no { background: #666; color: white; position: relative; }
 
-    .teddy { left: 10%; top: 55%; animation-delay: 0s; }
-    .choco { right: 12%; top: 60%; animation-delay: 1s; }
-    .rose1 { left: 20%; top: 25%; animation-delay: 2s; }
-    .rose2 { right: 20%; top: 30%; animation-delay: 3s; }
+    /* 🎁 Floating Decorations */
+    .item { position: absolute; font-size: 40px; animation: floatItem 4s ease-in-out infinite; z-index: 5; }
+    .teddy { left: 10%; top: 15%; }
+    .choco { right: 10%; top: 15%; animation-delay: 1s; }
+    .rose1 { right: 10%; bottom: 15%; animation-delay: 2s; }
 
     @keyframes floatItem {
-      0%   { transform: translateY(0) rotate(0deg); }
-      50%  { transform: translateY(-12px) rotate(3deg); }
-      100% { transform: translateY(0) rotate(0deg); }
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(10deg); }
     }
 
-    /* PAGE 2 */
-    #page2 { display: none; z-index: 10; }
-
-    #page2 h1 {
-      font-size: 32px;
-      text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    /* PAGE 2 Glassmorphism & Glow */
+    #page2 { display: none; }
+    #secret {
+      display: none;
+      margin-top: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 30px;
+      border-radius: 25px;
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255,255,255,0.3);
+      line-height: 1.6;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      animation: boxGlow 3s infinite alternate;
     }
 
-    #surpriseBtn, #waBtn {
-      background: #ffffff;
-      color: #ff2f6d;
-      padding: 14px 40px;
-      border-radius: 30px;
-      border: none;
-      font-size: 18px;
-      margin-top: 10px;
-      font-weight: bold;
-      text-decoration: none;
-      display: inline-block;
+    @keyframes boxGlow {
+      from { box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); }
+      to { box-shadow: 0 0 30px rgba(255, 255, 255, 0.5); }
     }
 
     #waBtn {
       background: #25D366;
       color: white;
+      padding: 12px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-block;
       margin-top: 20px;
-      font-size: 16px;
-    }
-
-    #secret {
-      display: none;
-      margin-top: 20px;
-      background: rgba(255,255,255,0.25);
-      padding: 25px;
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-    }
-
-    /* Floating Hearts */
-    .hearts-layer, .name-layer {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-    }
-
-    .heart {
-      position: absolute;
-      bottom: -60px;
-      animation: heartFloat 5s linear forwards;
-    }
-
-    .name {
-      position: absolute;
-      bottom: -60px;
-      font-size: 20px;
       font-weight: bold;
-      text-shadow: 0 0 10px white;
+      transition: 0.3s;
+    }
+
+    .heart, .name {
+      position: absolute;
+      bottom: -60px;
       animation: heartFloat 5s linear forwards;
     }
 
     @keyframes heartFloat {
-      to { transform: translateY(-120vh); opacity: 0; }
+      to { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* Music Control */
+    #musicBtn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 100;
     }
   </style>
 </head>
 
 <body>
 
-<!-- 🎁 Valentine Decorations -->
+<audio id="bgMusic" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+<button id="musicBtn">🎵</button>
+
 <div class="valentine-items" id="decorations">
+  <div class="big-rose">🌹</div>
   <div class="item teddy">🧸</div>
   <div class="item choco">🍫</div>
   <div class="item rose1">🌹</div>
-  <div class="item rose2">🌹</div>
 </div>
 
 <div id="page1">
-  <h1>Hey Bidishaaa Will you be my Valentine? <span class="rainbow-text">❤️</span></h1>
-  <h1>Please 🥺</h1>
+  <div class="photo-frame">
+    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Lucky" alt="Us">
+  </div>
+  <h1>Bidishaaa, Will you be my Valentine? <span class="rainbow-text">❤️</span></h1>
+  <p class="subtext">Pretty please? 🥺</p>
   <div class="buttons">
     <button id="yes">Yes ❤️</button>
     <button id="no">No 😜</button>
@@ -183,18 +209,16 @@
 </div>
 
 <div id="page2">
-  <h1>I Love You 💘</h1>
-  <h1>Love From Sayan</h1>
-  <h1>Waiting for your Answer...</h1>
-
-  <button id="surpriseBtn">Surprise Me</button>
+  <h1>I Love You Forever! 💘</h1>
+  <p class="subtext">Love from Sayan</p>
+  <button id="surpriseBtn" style="background: white; color: #ff2f6d; border-radius: 50px; padding: 15px 30px;">Click for a Surprise</button>
 
   <div id="secret">
-    <p>💌 If love be sin, then gladly am I lost;<p>
-<p>If truth be sworn, let this my vow remain:<p>
-<p>Whilst breath still warms this ever-faithful chest,<p>
-<p>My heart is thine, and thine alone, amen.💌</p>
-    <p>See you soon, my love ✨</p>
+    <p>💌 <i>"If love be sin, then gladly am I lost;<br>
+    If truth be sworn, let this my vow remain:<br>
+    Whilst breath still warms this ever-faithful chest,<br>
+    My heart is thine, and thine alone, amen."</i> 💌</p>
+    <p>See you soon, Gulu ✨</p>
 
     <a id="waBtn" href="https://wa.me/918436312171?text=Yes!%20I%20will%20be%20your%20Valentine!%20❤️✨" target="_blank">
       Reply on WhatsApp 📱
@@ -217,13 +241,19 @@
   const secret = document.getElementById('secret');
   const heartsLayer = document.querySelector('.hearts-layer');
   const nameLayer = document.querySelector('.name-layer');
+  const music = document.getElementById('bgMusic');
+  const musicBtn = document.getElementById('musicBtn');
 
+  // Smooth No Button movement
   let yesScale = 1;
-
   function moveNo() {
     noBtn.style.position = 'fixed';
-    noBtn.style.left = Math.random() * 70 + 'vw';
-    noBtn.style.top = Math.random() * 70 + 'vh';
+    noBtn.style.transition = 'all 0.3s ease';
+    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+    noBtn.style.left = `${x}px`;
+    noBtn.style.top = `${y}px`;
+    
     yesScale += 0.15;
     yesBtn.style.transform = `scale(${yesScale})`;
   }
@@ -231,11 +261,23 @@
   noBtn.addEventListener('mouseover', moveNo);
   noBtn.addEventListener('touchstart', moveNo);
 
+  // Music Toggle
+  musicBtn.onclick = () => {
+    if (music.paused) {
+      music.play();
+      musicBtn.textContent = '⏸️';
+    } else {
+      music.pause();
+      musicBtn.textContent = '🎵';
+    }
+  };
+
   function spawnHeart() {
     const h = document.createElement('div');
     h.className = 'heart';
-    h.textContent = '❤️';
+    h.textContent = ['❤️','💖','✨','🌸'][Math.floor(Math.random()*4)];
     h.style.left = Math.random() * 100 + 'vw';
+    h.style.fontSize = (Math.random() * 20 + 20) + 'px';
     heartsLayer.appendChild(h);
     setTimeout(() => h.remove(), 5000);
   }
@@ -246,23 +288,28 @@
     n.className = 'name';
     n.textContent = 'Gulu ❤️';
     n.style.left = Math.random() * 100 + 'vw';
+    n.style.color = 'white';
+    n.style.fontSize = '20px';
+    n.style.fontWeight = 'bold';
     nameLayer.appendChild(n);
     setTimeout(() => n.remove(), 5000);
   }
 
   yesBtn.onclick = () => {
-    confetti({ particleCount: 150, spread: 70 });
+    confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
+    music.play(); // Auto-play music on "Yes"
+    musicBtn.textContent = '⏸️';
     page1.style.display = 'none';
     decorations.style.display = 'none';
     document.body.style.background = 'linear-gradient(180deg, #ff4d4d, #ff9eb8)';
     page2.style.display = 'block';
-    setInterval(spawnName, 800);
+    setInterval(spawnName, 700);
   };
 
   surpriseBtn.onclick = () => {
     secret.style.display = 'block';
     surpriseBtn.style.display = 'none';
-    confetti({ particleCount: 100, spread: 80 });
+    confetti({ particleCount: 150, spread: 70 });
   };
 </script>
 
